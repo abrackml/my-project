@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+   background-color: #444444;
+ }
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 18rem;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2),
+               0 0 2rem rgba(255, 255, 255, 0.5),
+               inset 0 0 2rem rgba(255, 255, 255, 0.5);
+  cursor: move;
+}
+
+.container:hover {
+  box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.4),
+               0 0 3rem rgba(255, 255, 255, 0.7),
+               inset 0 0 3rem rgba(255, 255, 255, 0.7);
+}
+
+.container header {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.3rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.container .title {
+  margin: 0.5rem 0;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.container .content {
+  padding: 0 1.8rem 1rem 1.8rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content span {
+  font-size: 6rem;
+}
+
+.content h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+
+.content p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.content small {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: normal;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.content small div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 0.2rem;
+}
+
+.content small img {
+  width: 1rem;
+  height: 1rem;
+}

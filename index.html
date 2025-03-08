@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draggable Card | ARcoding</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="title">Draggable Card</h1>
+    </header>
+    <div class="content">
+      <span>&#128540;</span>
+      <h1>Drag Me!</h1>
+      <p>I'm built with HTML, CSS and JS. Click, hold, and drag to move.</p>
+      <small>Developed by:<div><img src="logo.png" alt="ARcoding_logo">ARcoding</div></small>
+    </div>
+  </div>
+  <script>
+    const container = document.querySelector(".container");
+    const header = container.querySelector("header");
+
+    let isDragging = false;
+    let offset = [0, 0];
+
+    ["mousedown", "touchstart"].forEach((event) => {
+        header.addEventListener(event, (e) => {
+        isDragging = true;
+        const touch = event === "touchstart" ? e.touches[0] : e;
+        offset = [touch.clientX - container.offsetLeft, touch.clientY - container.offsetTop];
+        header.classList.add("active");
+        if (event === "touchstart") e.preventDefault();
+      });
+    });
+
+    ["mouseup", "touchend"].forEach((event) => {
+      document.addEventListener(event, () => {
+      isDragging = false;
+      header.classList.remove("active");
+      });
+    });
+
+    ["mousemove", "touchmove"].forEach((event) => {
+    document.addEventListener(event, (e) => {
+      if (isDragging) {
+      const touch = event === "touchmove" ? e.touches[0] : e;
+      container.style.top = `${touch.clientY - offset[1]}px`;
+      container.style.left = `${touch.clientX - offset[0]}px`;
+      if (event === "touchmove") e.preventDefault();
+      }
+      });
+    });
+  </script>
+</body>
+</html>
